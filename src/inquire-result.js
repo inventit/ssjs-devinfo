@@ -14,8 +14,8 @@ session.log('inquire-device-info-result', 'Start Device Information Inquiry Resu
 
 // Result should be returned
 var objects = clientRequest.objects;
-if (objects.length == 0) {
-	session.log('Device sends wrong information.')
+if (objects.length === 0) {
+	session.log('Device sends wrong information.');
 	throw "No Result object!";
 }
 var result = objects[0];
