@@ -24,7 +24,6 @@ if (!result.deviceInfo) {
   session.log('Device sends wrong information.');
   throw "No Result object!";
 }
-
-var devinfo = result.deviceInfo;
+var devinfo = JSON.parse(session.b642text('ascii', result.deviceInfo));
 session.log('inquire-device-info-result', 'notifyAsync(devinfo):' + JSON.stringify(devinfo));
 session.notifyAsync(devinfo);
