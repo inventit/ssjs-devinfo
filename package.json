@@ -25,7 +25,7 @@
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-jsdoc": "~0.5.7",
     "grunt-mocha-chai-sinon": "~0.0.8",
-    "moat": "https://github.com/inventit/moatjs-stub.git",
+    "moat": "~1.2.0",
     "nodeunit": "*",
     "sinon": ">= 1.5.2"
   },
