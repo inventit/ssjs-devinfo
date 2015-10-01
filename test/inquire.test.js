@@ -1,6 +1,6 @@
 var nodeUnit = require('nodeunit');
 var sinon = require('sinon');
-var script = require('path').resolve('./inquire!1.0.js');
+var script = require('path').resolve('./src/inquire.js');
 var moat = require('moat');
 
 module.exports = nodeUnit.testCase({
@@ -15,11 +15,11 @@ module.exports = nodeUnit.testCase({
   'Device Information Inquiry, successful case (ASYNC)' : function(assert) {
 	// record state
     var context = moat.init(sinon);
-    var arguments = {
+    var dmjob_arguments = {
     };
     context.setDevice('uid', 'deviceId', 'name', 'status', 'clientVersion', 0);
     context.setDmjob('uid', 'deviceId', 'name', 'status', 'jobServiceId',
-			'sessionId', arguments, 'createdAt', 'activatedAt', 'startedAt',
+			'sessionId', dmjob_arguments, 'createdAt', 'activatedAt', 'startedAt',
 			'expiredAt', 'http', 'http://localhost');
 
     var session = context.session;
@@ -42,11 +42,11 @@ module.exports = nodeUnit.testCase({
   'Device Information Inquiry, error case.' : function(assert) {
 	// record state
     var context = moat.init(sinon);
-    var arguments = {
+    var dmjob_arguments = {
     };
     context.setDevice('uid', 'deviceId', 'name', 'status', 'clientVersion', 0);
     context.setDmjob('uid', 'deviceId', 'name', 'status', 'jobServiceId',
-			'sessionId', arguments, 'createdAt', 'activatedAt', 'startedAt',
+			'sessionId', dmjob_arguments, 'createdAt', 'activatedAt', 'startedAt',
 			'expiredAt', 'http', 'http://localhost');
 
     var session = context.session;

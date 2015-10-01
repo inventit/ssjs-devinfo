@@ -14,10 +14,16 @@ session.log('inquire-device-info-result', 'Start Device Information Inquiry Resu
 
 // Result should be returned
 var objects = clientRequest.objects;
-if (objects.length == 0) {
-	session.log('Device sends wrong information.')
-	throw "No Result object!";
+if (objects.length === 0) {
+  session.log('Device sends wrong information.');
+  throw "No Result object!";
 }
 var result = objects[0];
 session.log('inquire-device-info-result', 'Arrived:' + JSON.stringify(result));
-session.notifyAsync(result);
+if (!result.deviceInfo) {
+  session.log('Device sends wrong information.');
+  throw "No Result object!";
+}
+var devinfo = JSON.parse(session.b642text('ascii', result.deviceInfo));
+session.log('inquire-device-info-result', 'notifyAsync(devinfo):' + JSON.stringify(devinfo));
+session.notifyAsync(devinfo);
